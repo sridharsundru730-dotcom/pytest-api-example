@@ -13,9 +13,7 @@ def test_pet_schema():
     test_endpoint = "/pets/1"
 
     response = api_helpers.get_api_data(test_endpoint)
-
     assert response.status_code == 200
-
     # Validate the response schema against the defined schema in schemas.py
     validate(instance=response.json(), schema=schemas.pet)
 
@@ -57,4 +55,3 @@ def test_get_by_id_404(pet_id):
     test_endpoint = f"/pets/{pet_id}"
     response = api_helpers.get_api_data(test_endpoint)
     assert response.status_code == 404
-
